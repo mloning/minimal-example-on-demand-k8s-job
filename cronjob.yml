@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: scheduled-job
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: scheduled-job
+              image: busybox:1.28
+              imagePullPolicy: IfNotPresent
+              command:
+                [
+                  "sh",
+                  "-c",
+                  "echo $(date): Scheduled job is running ...; sleep 5; echo Done.",
+                ]
+          restartPolicy: Never

@@ -1,0 +1,11 @@
+name: k8s
+channels:
+  - conda-forge
+dependencies:
+  - black
+  - fastapi
+  - flake8
+  - python=3.10
+  - pip:
+      - kubernetes
+      - uvicorn
